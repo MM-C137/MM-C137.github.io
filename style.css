@@ -1,0 +1,280 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: system-ui;
+}
+
+:root{
+    --body-background: #F0F2F5;
+    --body-color: #000;
+    --body-switch-color: #000;
+    --switch-color: #fff;
+
+    --checkbox-accent-color: #000;
+}
+
+/* Dark Mode */
+:root.dark-mode{
+    --body-background: #080808;
+    --body-color: #fff;
+    --body-switch-color: #fff;
+    --switch-color: #000;
+
+    --checkbox-accent-color: #fff;
+}
+
+.toggle {
+    position: relative;
+    width: 4.25rem;
+    height: 2rem;
+}
+
+.toggle label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--body-switch-color);
+    border-radius: 1rem;
+    transition: background-color 0.3s ease-in-out;
+
+    box-shadow: 1px 1px 3px black;
+}
+
+.toggle label::before {
+    content: "";
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: .25rem;
+    left: .2rem;
+    border-radius: 50%;
+    background-color: var(--switch-color);
+    transition: transform 0.3s ease-in-out;
+}
+
+.toggle input:checked + label::before {
+    transform: translateX(2.35rem);
+}
+  
+/* Inputs */
+input[type="checkbox"]{
+    accent-color: var(--checkbox-accent-color);   
+    height: 100%;
+}
+
+input[type="text"]{
+    background-color: var(--body-background);
+    color: var(--body-color);
+    
+    font-size: 1.05rem;
+    font-weight: 550;
+    
+    border: none;
+    outline: none;
+}
+
+html{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--body-background);
+    color: var(--body-color);
+
+    display: grid;
+    place-items: center;
+}
+
+.container{
+    width: 90%;
+    height: 95%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    position: relative;
+}
+
+.container header{
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.container header .logo{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.container main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+}
+
+.container main .main-text{
+    font-weight: bold;
+}
+
+.container main .task-content .task span{
+    font-weight: 550;
+}
+
+.container main .options-content{
+    position: absolute;
+
+    right: 0;
+}
+
+.container main .options-content ul{
+    list-style-type: none;
+    
+    font-weight: bold;
+}
+
+.container main .options-content ul li{
+    opacity: .35;
+
+    transition: ease-in .2s;
+}
+
+.container main .options-content ul li:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.container footer{
+    position: absolute;
+    bottom: 0;
+
+    font-weight: bold;
+}
+
+.confirm-card{
+    position: absolute;
+    top: 2%;
+
+    transform: translateY(-117.5%);
+
+    min-width: 15rem;
+    max-width: 25rem;
+
+    padding: .5rem;
+
+    background-color: white;
+    color: black;
+    border: black solid 1px;
+
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.603);
+
+    font-weight: bold;
+    text-align: center;
+
+    transition: ease-in-out .75s;
+}
+
+.confirm-card small{
+    color: rgb(75, 75, 75);
+}
+
+.confirm-card.active{
+    transform: translateY(0);
+}
+
+.confirm-card .card-inputs{
+    margin: .5rem 0;
+
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.confirm-card .card-inputs input{
+    width: 48%;
+
+    border: none;
+    padding: .2rem 0;
+    background-color: #000;
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: ease-in .2s;
+}
+
+.confirm-card .card-inputs input:hover{
+    background-color: #181818;
+    color: white;
+}
+
+.confirm-card .card-inputs input.cancel{
+    background-color: transparent;
+    color: black;
+
+    border: 2px solid black;
+}
+
+.aside-card{
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+
+    background-color: #fff;
+
+    min-width: 15rem;
+    min-height: 10rem;
+
+    border: .75px solid black;
+    border-radius: .5rem 0 0 .5rem;
+
+    font-weight: 600;
+
+    display: flex;
+
+    transition: ease-in .35s;
+}
+
+.aside-card.active{
+    transform: translateX(-20%);
+}
+
+.aside-card-title{
+    writing-mode: sideways-lr;
+
+    background-color: #000;
+    color: #fff;
+
+    border-radius: .35rem 0 0 .35rem;
+    padding: .5rem;
+
+    text-align: center;
+}
+
+.aside-card-section{
+    width: 100%;
+    padding: .35rem .75rem;
+}
+
+.task-card{
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-card .tesk-card-del{
+    color: red;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}

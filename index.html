@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lList</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container">
@@ -13,7 +14,7 @@
             <div class="logo">lList</div>
             <div class="dark-mode-input">
                 <div class="toggle">
-                    <input type="checkbox" id="switch" hidden onclick="DarkMode.toogleDarkMode()">
+                    <input type="checkbox" id="switch" hidden onclick="DarkMode.toggleDarkMode()">
                     <label for="switch"></label>
                   </div>                  
             </div>
@@ -27,8 +28,8 @@
             </div>
             <div class="options-content">
                 <ul>
-                    <li onclick="AsideCard.toggleAsideCard()">Favouites</li>
-                    <li onclick="AsideCard.toggleAsideCard()">Suggestions</li>
+                    <li onclick="AsideCard.toggleAsideCard('Favourites'), Favourites.addFavouritesInAsideCard()">Favouites</li>
+                    <li onclick="AsideCard.toggleAsideCard('Suggestions'), Suggestions.addSuggestionsInAsideCard()">Suggestions</li>
                 </ul>
             </div>
         </main>
@@ -39,25 +40,20 @@
     <div class="confirm-card">
         <h2>R u sure?</h2>
         <hr>
-        <small>If check "<span id="spanTaskName"></span>", you cannot uncheck</small>
-        <div class="card-inputs" onclick="ConfirmCard.toogleConfirmCard()">
+        <small></small>
+        <div class="card-inputs" onclick="ConfirmCard.removeConfirmCard()">
             <input type="button" id="ConfirmButton" value="Yes">
             <input type="button" class="cancel" value="No">
         </div>
     </div>
-    <div class="aside-card">
+    <div class="aside-card ">
         <div class="aside-card-title">
-            <h2>Favourites</h2>
+            <h2></h2>
         </div>
         <div class="aside-card-section">
-            <div class="aside-card-content">
-                <div class="task-card">
-                    <div class="tesk-card-name">Sistema 24h</div>
-                    <div class="tesk-card-del">-</div>
-                </div>
-            </div>
+            <div class="aside-card-content"></div>
             <div class="aside-card-button">
-
+                <input type="button" value="Close" onclick="AsideCard.removeAsideCard()">
             </div>
         </div>
     </div>

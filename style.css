@@ -22,7 +22,7 @@
     --body-switch-color: #fff;
     --switch-color: #000;
 
-    --checkbox-accent-color: #fff;
+    /* --checkbox-accent-color: #fff; */
 }
 
 .toggle {
@@ -127,6 +127,10 @@ body{
 
 .container main .task-content .task span{
     font-weight: 550;
+}
+
+.container main .task-content .task .star{
+    cursor: pointer;
 }
 
 .container main .options-content{
@@ -262,8 +266,31 @@ body{
 }
 
 .aside-card-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     width: 100%;
     padding: .35rem .75rem;
+
+    overflow-y: auto;
+}
+
+.aside-card-button{
+    text-align: end;
+}
+
+.aside-card-button input{
+    background-color: #000;
+    color: #fff;
+
+    padding: .25rem .5rem;
+
+    border: none;
+
+    font-weight: bold;
+
+    cursor: pointer;
 }
 
 .task-card{
@@ -271,10 +298,22 @@ body{
     justify-content: space-between;
 }
 
-.task-card .tesk-card-del{
+.task-card .task-card-name{
+    cursor: pointer;
+    color: #000;
+    
+    transition: ease .2s;
+}
+
+.task-card .task-card-name:hover{
+    color: #303030;
+}
+
+.task-card .task-card-del{
     color: red;
 
     font-weight: bold;
 
     cursor: pointer;
 }
+

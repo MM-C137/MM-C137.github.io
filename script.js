@@ -70,16 +70,18 @@ const ConfirmCard = {
 
 const AsideCard = {
     asideCardContent: document.querySelector(".aside-card-content"),
-    toggleAsideCard(kind){
+    toggleAsideCard(kind, func){
         if(document.querySelectorAll(".aside-card.active").length == 0 || kind == document.querySelector(".aside-card-title h2").textContent){
             document.querySelector(".aside-card").classList.add("active");
             document.querySelector(".aside-card-title h2").innerHTML = kind;
+            func();
         }else{
             document.querySelector(".aside-card").classList.remove("active");
 
             setTimeout(()=>{
                 document.querySelector(".aside-card-title h2").innerHTML = kind;
                 document.querySelector(".aside-card").classList.add("active");
+                func();
             },475)
         }
     },
@@ -118,7 +120,12 @@ const Database = {
 
 const TasksData = Database.getTaskDay();
 const FavouritesData = Database.getFavourites();
-const SuggestionsData = ["1skflsçflks", "2sdjsdkjsd", "3dsdlksdç"]
+
+fetch("https://64137ed5c469cff60d6481ce.mockapi.io/suggestions/suggestions")
+.then(res => res.json())
+.then((data)=>{
+    console.log(data);
+})
 
 const Tasks = {
     checkTaskNumber(){
@@ -196,6 +203,8 @@ const Utils = {
     },
     checkDate(lastDate){
         if(lastDate == this.getDateToday()) return 1;
+
+        
         return 0;
     }
 }
@@ -204,8 +213,6 @@ const DOM = {
     dataContent: document.querySelector(".data-content"),
     taskListContent: document.querySelector(".task-list-content"),
     innerDataDay(){
-        let date = new Date;
-
         this.dataContent.innerHTML = Utils.getDateToday();
     },
     checkAddContentInput(){
@@ -226,6 +233,7 @@ const DOM = {
 
 const Form = {
     submit(event){
+        event.preventDefault();
         let name = document.querySelector("#newTaskInput").value;
 
         if(name.trim() === "") return event.preventDefault();

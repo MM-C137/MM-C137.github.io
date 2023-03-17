@@ -22,7 +22,11 @@
     --body-switch-color: #fff;
     --switch-color: #000;
 
-    /* --checkbox-accent-color: #fff; */
+    --checkbox-accent-color: #000;
+
+    --confirm-card: ;
+    
+    --aside-card:
 }
 
 .toggle {
@@ -310,10 +314,9 @@ body{
 }
 
 .task-card .task-card-del{
-    color: red;
+    color: #ff0000;
 
     font-weight: bold;
 
     cursor: pointer;
 }
-

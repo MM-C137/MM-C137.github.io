@@ -7,6 +7,7 @@
     <title>lList</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="suggestions.json">
 </head>
 <body>
     <div class="container">
@@ -28,8 +29,8 @@
             </div>
             <div class="options-content">
                 <ul>
-                    <li onclick="AsideCard.toggleAsideCard('Favourites'), Favourites.addFavouritesInAsideCard()">Favouites</li>
-                    <li onclick="AsideCard.toggleAsideCard('Suggestions'), Suggestions.addSuggestionsInAsideCard()">Suggestions</li>
+                    <li onclick="AsideCard.toggleAsideCard('Favourites', Favourites.addFavouritesInAsideCard)">Favouites</li>
+                    <li onclick="AsideCard.toggleAsideCard('Suggestions', Suggestions.addSuggestionsInAsideCard)">Suggestions</li>
                 </ul>
             </div>
         </main>
@@ -46,7 +47,7 @@
             <input type="button" class="cancel" value="No">
         </div>
     </div>
-    <div class="aside-card ">
+    <div class="aside-card">
         <div class="aside-card-title">
             <h2></h2>
         </div>
